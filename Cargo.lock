@@ -116,6 +116,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "tracing-spanned"
+version = "0.1.0"
+dependencies = [
+ "tracing",
+ "tracing-error",
+]
+
+[[package]]
 name = "tracing-subscriber"
 version = "0.3.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -124,14 +132,6 @@ dependencies = [
  "sharded-slab",
  "thread_local",
  "tracing-core",
-]
-
-[[package]]
-name = "tracing_spanned"
-version = "0.1.0"
-dependencies = [
- "tracing",
- "tracing-error",
 ]
 
 [[package]]
