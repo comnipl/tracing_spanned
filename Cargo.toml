@@ -1,0 +1,7 @@
+[package]
+name = "tracing_spanned"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tracing-error = "0.2.0"
