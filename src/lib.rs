@@ -5,6 +5,10 @@ use std::error::Error;
 use std::fmt::Display;
 use tracing_error::SpanTrace;
 
+/// [`tracing_error::SpanTrace`] wrapped with an error.
+///
+///
+/// By [`ResultTracingExt::in_current_span`], you can easily wrap an error with a [`SpanTrace`].
 /// ```
 /// use tracing_spanned::{SpanErr, ResultTracingExt};
 ///
@@ -12,6 +16,11 @@ use tracing_error::SpanTrace;
 /// let number: Result<u32, SpanErr<_>> = my_string.parse::<u32>().in_current_span();
 /// ```
 ///
+/// SpanErr does not implement [`std::error::Error`] trait because SpanErr does not have any
+/// information about the error directly.
+///
+/// It also prevents double wrapping of the same error.
+/// (Following code will not compile, because [`SpanErr`] does not implement [`std::error::Error`])
 /// ```compile_fail
 /// use tracing_spanned::{SpanErr, ResultTracingExt};
 ///
